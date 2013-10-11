@@ -7,6 +7,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="x-property-editor.html">
 <link rel="import" href="../x-editors/x-editors.html">
 <link rel="import" href="../binding.html">
+<link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation.html">
 
 <polymer-element name="x-property-inspector" attributes="property nobind" 
     on-editor-value-changed="valueChangedEvent">
@@ -58,8 +59,8 @@ license that can be found in the LICENSE file.
     <div id="iconContainer" on-click="linkTap" nodisplay?="{{nobind}}">
       <polymer-ui-icon id="icon" src="assets/link_dark.png" size="16"></polymer-ui-icon>
     </div>  
-<!--    <g-flip-out id="animOut" targetSelector="#container" on-complete="animOutComplete"></g-flip-out>
-    <g-flip-in id="animIn" targetSelector="#container"></g-flip-in>-->
+    <x-flip-out id="animOut" target="{{$.container}}" on-animation-end="animOutComplete"></x-flip-out>
+    <x-flip-in id="animIn" target="{{$.container}}"></x-flip-in>
   </template>
   <script>
     Polymer('x-property-inspector', {
@@ -146,15 +147,17 @@ license that can be found in the LICENSE file.
   </script>
 </polymer-element>
 
-<!--<polymer-element name="g-flip-out" extends="g-animation">
+<!-- <polymer-element name="x-flip-out" extends="polymer-animation">
   <template>
-    <g-property name="transform">
-      <g-keyframe value="perspective(400px) translateZ(0px) rotateX(0deg) scale(1)"></g-keyframe>
-      <g-keyframe value="perspective(400px) translateZ(0px) rotateX(90deg) scale(1)"></g-keyframe>
-    </g-property>
+    <polymer-animation-keyframe>
+      <polymer-animation-prop name="transform" value="perspective(400px) translateZ(0px) rotateX(0deg) scale(1)"></polymer-animation-prop>
+    </polymer-animation-keyframe>
+    <polymer-animation-keyframe>
+      <polymer-animation-prop name="transform" value="perspective(400px) translateZ(0px) rotateX(90deg) scale(1)"></polymer-animation-prop>
+    </polymer-animation-keyframe>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('x-flip-out', {
       duration: 0.2,
       fillMode: 'none',
       easing: 'ease-in'
@@ -162,53 +165,51 @@ license that can be found in the LICENSE file.
   </script>
 </polymer-element>
 
-<polymer-element name="g-flip-in" Xextends="g-animation" extends="g-flip-out">
+<polymer-element name="x-flip-in" extends="polymer-animation">
   <template>
-    <g-property name="transform">
-      <g-keyframe value="perspective(400px) translateZ(0px) rotateY(270deg) scale(1)"></g-keyframe>
-      <g-keyframe value="perspective(400px) translateZ(0px) rotateY(360deg) scale(1)"></g-keyframe>
-    </g-property>
+    <polymer-animation-keyframe>
+      <polymer-animation-prop name="transform" value="perspective(400px) translateZ(0px) rotateY(270deg) scale(1)"></polymer-animation-prop>
+    </polymer-animation-keyframe>
+    <polymer-animation-keyframe>
+      <polymer-animation-prop name="transform" value="perspective(400px) translateZ(0px) rotateY(360deg) scale(1)"></polymer-animation-prop>
+    </polymer-animation-keyframe>
   </template>
   <script>
-    Polymer.register(this, {
+    Polymer('x-flip-in', {
       easing: 'ease-out'
     });
   </script>
-</polymer-element>
+</polymer-element> -->
 
- <polymer-element name="g-flip-out" extends="g-animation">
+ <polymer-element name="x-flip-out" extends="polymer-animation">
   <script>
-    Polymer('g-flip-out', {
+    Polymer('x-flip-out', {
       duration: 0.2,
       fillMode: 'none',
-      properties: {
-        transform: [{
-          easing: 'ease-in',
-          offset: 0,
-          value: 'perspective(400px) translateZ(0px) rotateX(0deg) scale(1)'
-        }, {
-          offset: 1,
-          value: 'perspective(400px) translateZ(0px) rotateX(90deg) scale(1)'
-        }]
-      }
+      keyframes: [{
+        easing: 'ease-in',
+        offset: 0,
+        transform: 'perspective(400px) translateZ(0px) rotateX(0deg) scale(1)'
+      }, {
+        offset: 1,
+        transform: 'perspective(400px) translateZ(0px) rotateX(90deg) scale(1)'
+      }]
     });
   </script>
 </polymer-element>
 
-<polymer-element name="g-flip-in" extends="g-flip-out">
+<polymer-element name="x-flip-in" extends="x-flip-out">
   <script>
-     Polymer('g-flip-in', {
-      properties: {
-        transform: [{
-          easing: 'ease-out',
-          offset: 0,
-          value: 'perspective(400px) translateZ(0px) rotateY(270deg) scale(1)'
-        }, {
-          offset: 1,
-          value: 'perspective(400px) translateZ(0px) rotateY(360deg) scale(1)'
-        }]
-      }
+     Polymer('x-flip-in', {
+      keyframes: [{
+        easing: 'ease-out',
+        offset: 0,
+        transform: 'perspective(400px) translateZ(0px) rotateY(270deg) scale(1)'
+      }, {
+        offset: 1,
+        transform: 'perspective(400px) translateZ(0px) rotateY(360deg) scale(1)'
+      }]
     });
   </script>
 </polymer-element> 
--->
+
