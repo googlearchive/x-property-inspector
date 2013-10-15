@@ -59,7 +59,7 @@ license that can be found in the LICENSE file.
     <div id="iconContainer" on-click="linkTap" nodisplay?="{{nobind}}">
       <polymer-ui-icon id="icon" src="assets/link_dark.png" size="16"></polymer-ui-icon>
     </div>  
-    <x-flip-out id="animOut" target="{{$.container}}" on-animation-end="animOutComplete"></x-flip-out>
+    <x-flip-out id="animOut" target="{{$.container}}" on-polymer-animation-end="animOutComplete"></x-flip-out>
     <x-flip-in id="animIn" target="{{$.container}}"></x-flip-in>
   </template>
   <script>
