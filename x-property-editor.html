@@ -120,7 +120,7 @@ license that can be found in the LICENSE file.
         this.buildOptions();
       },
       findRoot: function(node) {
-        while (node && node.id !== 'designElement') {
+        while (node && node.id !== 'canvas') {
           node = node.parentNode;
         }
         return node;
