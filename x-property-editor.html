@@ -51,9 +51,9 @@ license that can be found in the LICENSE file.
         }
       }
     </style>
-    <x-id-select-editor id="idSelect" style="width: 112px;" options="{{elements}}" value="{{target}}" on-editor-value-changed="editorValueChanged" ></x-id-select-editor>
+    <x-id-select-editor id="idSelect" style="width: 112px;" options="{{elements}}" value="{{target}}" on-editor-value-changed="{{editorValueChanged}}" ></x-id-select-editor>
     <!-- <x-select-editor style="width: 145px;" options="{{properties}}"></x-select-editor> -->
-    <x-string-editor style="width: 161px;" value="{{workingValue}}" on-editor-value-changed="editorValueChanged" ></x-string-editor>
+    <x-string-editor style="width: 161px;" value="{{workingValue}}" on-editor-value-changed="{{editorValueChanged}}" ></x-string-editor>
   </template>
   <script>
     Polymer('x-binding-editor', {
@@ -154,7 +154,7 @@ license that can be found in the LICENSE file.
 
 <polymer-element name="x-action-editor" extends="x-abstract-editor">
   <template>
-    <button touch-action="none" on-pointerup="buttonClick">{{meta.label}}</button>
+    <button touch-action="none" on-pointerup="{{buttonClick}}">{{meta.label}}</button>
   </template>
   <script>
     Polymer('x-action-editor', {

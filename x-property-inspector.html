@@ -10,7 +10,7 @@ license that can be found in the LICENSE file.
 <link rel="import" href="../../polymer-elements/polymer-animation/polymer-animation.html">
 
 <polymer-element name="x-property-inspector" attributes="property nobind" 
-    on-editor-value-changed="valueChangedEvent">
+    on-editor-value-changed="{{valueChangedEvent}}">
   <template>
     <style>
       @host {
@@ -56,10 +56,10 @@ license that can be found in the LICENSE file.
     </style>
     <div class="property-name">{{property.name}}:</div>
     <span id="container"><content></content></span>
-    <div id="iconContainer" on-click="linkTap" nodisplay?="{{nobind}}">
+    <div id="iconContainer" on-click="{{linkTap}}" nodisplay?="{{nobind}}">
       <polymer-ui-icon id="icon" src="assets/link_dark.png" size="16"></polymer-ui-icon>
     </div>  
-    <x-flip-out id="animOut" target="{{$.container}}" on-polymer-animation-end="animOutComplete"></x-flip-out>
+    <x-flip-out id="animOut" target="{{$.container}}" on-polymer-animation-end="{{animOutComplete}}"></x-flip-out>
     <x-flip-in id="animIn" target="{{$.container}}"></x-flip-in>
   </template>
   <script>
