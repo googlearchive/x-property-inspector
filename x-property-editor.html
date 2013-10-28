@@ -83,7 +83,8 @@ license that can be found in the LICENSE file.
       },
       valueChanged: function() {
         if (this.value[0] == '$') {
-          var values = this.value.split('.');
+          var values = this.value.splice ? this.value.slice(0) : 
+              this.value.split('.');
           values.shift(); // remove $
           this.target = values.shift() // get object id
           this.workingValue = values.join('.');
