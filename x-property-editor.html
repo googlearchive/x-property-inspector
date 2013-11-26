@@ -8,11 +8,9 @@ license that can be found in the LICENSE file.
 <polymer-element name="x-property-editor" attributes="editorTag">
   <template>
     <style>
-      @host {
-        * {
-          display: block;
-          white-space: nowrap;
-        }
+      :host {
+        display: block;
+        white-space: nowrap;
       }
     </style>
     <content></content>
@@ -46,11 +44,9 @@ license that can be found in the LICENSE file.
 <polymer-element name="x-binding-editor" extends="x-abstract-editor">
   <template>
     <style>
-      @host {
-        * {
-          display: block;
-          white-space: nowrap;
-        }
+      :host {
+        display: block;
+        white-space: nowrap;
       }
     </style>
     <x-id-select-editor id="idSelect" style="width: 112px;" options="{{elements}}" value="{{target}}" on-editor-value-changed="{{editorValueChanged}}" ></x-id-select-editor>
