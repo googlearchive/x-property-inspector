@@ -24,10 +24,10 @@ license that can be found in the LICENSE file.
         this.appendChild(this.editor);
         // bind propertyValue to property
         var p = this.meta.property;
-        this.bindProperty('propertyValue', p.obj, p.name);
+        this.bindProperty('propertyValue', new PathObserver(p.obj, p.name));
         // bind this.editor.value to propertyValue
         // (imperative form of <editor value="{{editorValue}}">)
-        this.editor.bindProperty('value', this, 'propertyValue');
+        this.editor.bindProperty('value', new PathObserver(this, 'propertyValue'));
         // update editor meta from property
         this.updateEditorMeta();
       },
