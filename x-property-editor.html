@@ -99,6 +99,14 @@ license that can be found in the LICENSE file.
           name: this.meta.property.name,
           path: this.value
         });
+      },
+      /* commit an empty binding value when detached */
+      unbind: function() {
+        this.fire('bind-property', {
+          obj: this.meta.property.obj,
+          name: this.meta.property.name,
+          path: ''
+        });
       }
     });
   </script>

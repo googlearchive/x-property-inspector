@@ -100,7 +100,10 @@ license that can be found in the LICENSE file.
       updateBindingMode: function() {
         this.bindingMode = Boolean(this.binding);
       },
-      bindingModeChanged: function() {
+      bindingModeChanged: function(old) {
+        if (old && this.editor) {
+          this.editor.unbind();
+        }
         this.$.icon.classList.toggle('binding', this.bindingMode);
         this.makeEditor(this.bindingMode ? 'x-binding-editor' 
             : 'x-property-editor');
