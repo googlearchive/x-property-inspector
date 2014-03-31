@@ -2,9 +2,10 @@
   "name": "x-property-inspector",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "x-editors": "Polymer/x-editors#master",
-    "x-binding": "Polymer/x-binding#master",
-    "polymer-animation": "Polymer/polymer-animation#master"
-  }
+    "polymer": "Polymer/polymer#0.2.2",
+    "x-editors": "Polymer/x-editors#0.2.2",
+    "x-binding": "Polymer/x-binding#0.2.2",
+    "polymer-animation": "Polymer/polymer-animation#0.2.2"
+  },
+  "version": "0.2.2"
 }
